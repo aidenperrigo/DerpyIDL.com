@@ -1,0 +1,7 @@
+<!-- This is a placeholder for a favicon. In a real project, you would create an actual .ico file -->
+<!-- For now, we'll create an SVG favicon that can be referenced -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <rect width="32" height="32" fill="#1a1a2e"/>
+    <polygon points="16,4 28,16 16,28 4,16" fill="#ff3838" stroke="#ffffff" stroke-width="1"/>
+    <rect x="12" y="12" width="8" height="8" fill="#4ecdc4"/>
+</svg>
