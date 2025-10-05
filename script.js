@@ -1359,12 +1359,21 @@ function initializeDonationSystem() {
     // Handle custom amount input
     customAmount.addEventListener('input', () => {
         const value = parseFloat(customAmount.value);
-        if (value && value > 0) {
+        if (value && value > 0 && value <= 1000) {
             selectedDonationAmount = value;
             proceedBtn.disabled = false;
+            customAmount.style.borderColor = '';
+            customAmount.title = '';
+        } else if (value > 1000) {
+            selectedDonationAmount = 0;
+            proceedBtn.disabled = true;
+            customAmount.style.borderColor = '#ff4444';
+            customAmount.title = 'Maximum donation amount is $1000 USD';
         } else {
             selectedDonationAmount = 0;
             proceedBtn.disabled = true;
+            customAmount.style.borderColor = '';
+            customAmount.title = '';
         }
     });
 
