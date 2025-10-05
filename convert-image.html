@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image to Base64 Converter</title>
+</head>
+<body>
+    <h2>Convert Your GD Profile Image to Base64</h2>
+    <p>Use this tool to convert your Geometry Dash profile screenshot:</p>
+    
+    <input type="file" id="imageInput" accept="image/*">
+    <br><br>
+    <canvas id="canvas" style="display: none;"></canvas>
+    <br>
+    <textarea id="base64Output" rows="10" cols="80" placeholder="Base64 output will appear here..."></textarea>
+    <br><br>
+    <button onclick="copyToClipboard()">Copy Base64</button>
+    
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.getElementById('canvas');
+                        const ctx = canvas.getContext('2d');
+                        
+                        // Set canvas size to match image
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        
+                        // Draw image on canvas
+                        ctx.drawImage(img, 0, 0);
+                        
+                        // Get base64 string
+                        const base64 = canvas.toDataURL('image/png');
+                        document.getElementById('base64Output').value = base64;
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        function copyToClipboard() {
+            const textarea = document.getElementById('base64Output');
+            textarea.select();
+            document.execCommand('copy');
+            alert('Base64 copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
+
+
