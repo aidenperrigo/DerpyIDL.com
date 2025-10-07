@@ -2702,8 +2702,8 @@ body.light-theme .time-machine-modal .time-machine-description {
 /* Info Button Styles */
 .info-btn {
     position: fixed;
-    top: 15px;
-    left: 250px; /* Position next to live tracker */
+    top: 80px; /* Position below the live tracker */
+    left: 20px; /* Align with live tracker */
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(138, 43, 226, 0.3);
