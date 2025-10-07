@@ -1071,27 +1071,6 @@ completeMissingDescriptions();
 let playerRecords = JSON.parse(localStorage.getItem('derpyIDLRecords')) || [];
 let leaderboard = JSON.parse(localStorage.getItem('derpyIDLLeaderboard')) || [];
 
-// Add sample data if leaderboard is empty (for testing)
-if (leaderboard.length === 0) {
-    leaderboard = [
-        {
-            name: "TestPlayer1",
-            totalPoints: 500.00,
-            records: [
-                { demon: "Kanpai", points: 250.00, percentage: 100 },
-                { demon: "in canon", points: 248.74, percentage: 100 }
-            ]
-        },
-        {
-            name: "TestPlayer2", 
-            totalPoints: 247.48,
-            records: [
-                { demon: "smohcs", points: 247.48, percentage: 100 }
-            ]
-        }
-    ];
-}
-
 // Initialize record submission system
 function initializeRecordSystem() {
     console.log('Initializing record system...'); // Debug log
