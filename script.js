@@ -723,6 +723,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize live tracker
     liveTracker.initialize();
+
+    // Initialize info modal
+    initializeInfoModal();
 });
 
 function setupEventListeners() {
@@ -2974,3 +2977,40 @@ console.log(`
 📡 Monitoring insanedemonlist.com for changes
 ⚙️ Type 'trackerAdmin.help()' in console for admin commands
 `);
+
+// Info Modal System
+function initializeInfoModal() {
+    const infoBtn = document.getElementById('infoBtn');
+    const infoModal = document.getElementById('infoModal');
+    const closeInfoModal = document.getElementById('closeInfoModal');
+
+    // Open info modal
+    infoBtn.addEventListener('click', () => {
+        infoModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+    });
+
+    // Close info modal
+    closeInfoModal.addEventListener('click', () => {
+        infoModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
+    });
+
+    // Close modal when clicking outside
+    infoModal.addEventListener('click', (e) => {
+        if (e.target === infoModal) {
+            infoModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && infoModal.style.display === 'block') {
+            infoModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    console.log('ℹ️ Info modal system initialized');
+}

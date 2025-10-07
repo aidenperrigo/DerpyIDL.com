@@ -25,6 +25,11 @@
             </div>
         </header>
 
+        <!-- Info Button (Top Left) -->
+        <button class="info-btn" id="infoBtn" title="Website Information">
+            ℹ️
+        </button>
+
         <div class="settings-container">
             <button class="action-button submit-btn" id="submitRecordBtn">Submit Record</button>
             <button class="action-button leaderboard-btn" id="leaderboardBtn">Leaderboard</button>
@@ -926,6 +931,68 @@
                     <button type="submit" class="donate-submit-btn">Donate <span id="finalAmount">$0.00</span></button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Website Info Modal -->
+    <div class="modal" id="infoModal">
+        <div class="modal-content info-modal-content">
+            <span class="close-modal" id="closeInfoModal">&times;</span>
+            <div class="modal-header">
+                <h2>🌟 DerpyIDL Website Information</h2>
+                <span class="version-badge">v1.0</span>
+            </div>
+            
+            <div class="info-content">
+                <p class="info-disclaimer">
+                    This is v.1.0 of the website, and may include some bugs. Here is what we have featured:
+                </p>
+
+                <div class="feature-section">
+                    <h3>🕰️ Time Machine</h3>
+                    <p>Allows you to see historical data on the list all the way back to October 2023.</p>
+                </div>
+
+                <div class="feature-section">
+                    <h3>📊 Submit Record/Leaderboard</h3>
+                    <p>Allows you to submit a record to the leaderboard (Early Access) and may not work fully because test players were imported/struggling to get them out.</p>
+                </div>
+
+                <div class="feature-section">
+                    <h3>💰 Donation</h3>
+                    <p>Help us maintain the website even if it is just one dollar. However, we only accept USD$. In the custom donation button there is a donation limit capping at 1,000 dollars so that nobody is broke. There is no PayPal/Venmo, CashApp, Chase bank info to send the money to yet so please do not waste your money on that when it is not working yet.</p>
+                </div>
+
+                <div class="feature-section">
+                    <h3>👑 Membership</h3>
+                    <p>There are four stages of membership:</p>
+                    <ul class="membership-list">
+                        <li><strong>🥉 Bronze ($5):</strong> Basic supporter status + Special badge</li>
+                        <li><strong>🥈 Silver ($15):</strong> Priority support + Custom flair + All Bronze benefits</li>
+                        <li><strong>🥇 Gold ($30):</strong> Beta features access + Exclusive content + All previous benefits</li>
+                        <li><strong>💎 Platinum ($50):</strong> VIP status + Direct developer contact + All previous benefits</li>
+                    </ul>
+                </div>
+
+                <div class="feature-section">
+                    <h3>🔐 Forgot Password</h3>
+                    <p>If you forgot your password, the system sends a code to your email using EmailJS. Enter the provided code in your email and you can renew your password.</p>
+                </div>
+
+                <div class="feature-section">
+                    <h3>🎥 Showcase</h3>
+                    <p>At the very right of every card you will see a youtube button. Click on that and it will lead you to a video URL of the showcase. We are working on a system that clicks on it automatically to look more organized, sorry about that for now.</p>
+                </div>
+
+                <div class="feature-section enjoy-section">
+                    <h3>🎉 Enjoy The Website</h3>
+                    <p>Have fun! Do whatever you would like with this site (Except hacking it), make remixes of it, Use the lists data, We don't mind. Just use the website to it's fullest, and enjoy it.</p>
+                </div>
+
+                <div class="info-footer">
+                    <p>Made with ❤️ by the DerpyIDL team</p>
+                </div>
+            </div>
         </div>
     </div>
 
