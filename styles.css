@@ -2537,18 +2537,24 @@ body.light-theme .time-machine-modal .time-machine-description {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(138, 43, 226, 0.3);
-    border-radius: 12px;
-    padding: 10px 15px;
+    border-radius: 25px;
+    padding: 8px 16px;
     z-index: 1001;
     font-size: 0.85rem;
-    min-width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.live-tracker:hover {
+    background: rgba(0, 0, 0, 0.9);
+    border-color: rgba(138, 43, 226, 0.5);
+    transform: scale(1.02);
 }
 
 .tracker-status {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 5px;
 }
 
 .status-dot {
@@ -2586,25 +2592,17 @@ body.light-theme .time-machine-modal .time-machine-description {
     50% { opacity: 0.2; }
 }
 
-.force-update-btn {
-    background: none;
-    border: none;
-    color: #8a2be2;
-    cursor: pointer;
-    padding: 2px 6px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.force-update-btn:hover {
-    background: rgba(138, 43, 226, 0.2);
-    transform: rotate(180deg);
-}
-
 .last-update {
     color: #888;
     font-size: 0.75rem;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.live-tracker.expanded {
+    border-radius: 15px !important;
+    padding: 10px 16px;
 }
 
 .update-notification {
@@ -2684,14 +2682,6 @@ body.light-theme .time-machine-modal .time-machine-description {
 
 /* Mobile Responsiveness for Tracker */
 @media (max-width: 768px) {
-    .live-tracker {
-        position: relative;
-        top: 0;
-        left: 0;
-        margin: 10px auto;
-        width: fit-content;
-    }
-    
     .update-notification {
         margin: 20px;
         min-width: auto;
@@ -2702,16 +2692,16 @@ body.light-theme .time-machine-modal .time-machine-description {
 /* Info Button Styles */
 .info-btn {
     position: fixed;
-    top: 80px; /* Position below the live tracker */
-    left: 20px; /* Align with live tracker */
+    top: 15px;
+    left: 180px; /* Position to the right of live tracker */
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(138, 43, 226, 0.3);
+    border: 1px solid rgba(138, 43, 226, 0.3);
     border-radius: 50%;
     color: #8a2be2;
-    font-size: 1.2rem;
-    width: 45px;
-    height: 45px;
+    font-size: 1rem;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -2833,11 +2823,19 @@ body.light-theme .time-machine-modal .time-machine-description {
 
 /* Mobile Responsiveness for Info Button */
 @media (max-width: 768px) {
+    .live-tracker {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 10px auto 5px;
+        width: fit-content;
+    }
+    
     .info-btn {
         position: relative;
         top: 0;
         left: 0;
-        margin: 10px auto;
+        margin: 5px auto 10px;
         display: block;
     }
     

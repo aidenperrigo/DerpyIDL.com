@@ -2780,17 +2780,16 @@ class InsaneDemonListTracker {
             <div class="tracker-status">
                 <span class="status-dot" id="trackerDot"></span>
                 <span id="trackerStatus">Checking for updates...</span>
-                <button id="forceUpdate" class="force-update-btn" title="Force update check">🔄</button>
             </div>
-            <div class="last-update" id="lastUpdateTime">
+            <div class="last-update" id="lastUpdateTime" style="display: none;">
                 Last update: ${this.lastUpdate ? new Date(parseInt(this.lastUpdate)).toLocaleString() : 'Never'}
             </div>
         `;
         header.appendChild(trackerDiv);
 
-        // Add event listeners
-        document.getElementById('forceUpdate').addEventListener('click', () => {
-            this.forceUpdate();
+        // Add click listener to show/hide details
+        trackerDiv.addEventListener('click', () => {
+            this.toggleTrackerDetails();
         });
     }
 
@@ -2853,6 +2852,24 @@ class InsaneDemonListTracker {
                 removedDemons: []
             }
         };
+    }
+
+    // Toggle tracker details visibility
+    toggleTrackerDetails() {
+        const lastUpdateElement = document.getElementById('lastUpdateTime');
+        const isVisible = lastUpdateElement.style.display !== 'none';
+        
+        if (isVisible) {
+            lastUpdateElement.style.display = 'none';
+            // Make pill smaller when collapsed
+            document.querySelector('.live-tracker').style.borderRadius = '25px';
+        } else {
+            lastUpdateElement.style.display = 'block';
+            // Make pill slightly larger when expanded
+            document.querySelector('.live-tracker').style.borderRadius = '15px';
+            // Also force an update check when expanded
+            this.forceUpdate();
+        }
     }
 
     // Force an immediate update check
