@@ -2528,3 +2528,173 @@ body.light-theme .time-machine-modal .time-machine-description {
     display: flex;
     justify-content: center;
 }
+
+/* Live Tracker Styles */
+.live-tracker {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 12px;
+    padding: 10px 15px;
+    z-index: 1001;
+    font-size: 0.85rem;
+    min-width: 200px;
+}
+
+.tracker-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #666;
+    animation: pulse 2s infinite;
+}
+
+.status-dot.checking {
+    background: #ffa500;
+}
+
+.status-dot.up-to-date {
+    background: #00ff00;
+}
+
+.status-dot.updates-available {
+    background: #ff4444;
+    animation: blink 1s infinite;
+}
+
+.status-dot.error {
+    background: #ff0000;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+.force-update-btn {
+    background: none;
+    border: none;
+    color: #8a2be2;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.force-update-btn:hover {
+    background: rgba(138, 43, 226, 0.2);
+    transform: rotate(180deg);
+}
+
+.last-update {
+    color: #888;
+    font-size: 0.75rem;
+}
+
+.update-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px solid #8a2be2;
+    border-radius: 15px;
+    padding: 25px;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    min-width: 350px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.notification-content h3 {
+    color: #8a2be2;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.notification-content p {
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.notification-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.notification-actions button:first-child {
+    background: #8a2be2;
+    color: white;
+}
+
+.notification-actions button:first-child:hover {
+    background: #9a4bd9;
+    transform: translateY(-2px);
+}
+
+.notification-actions button:last-child {
+    background: transparent;
+    border: 1px solid #666;
+    color: #ccc;
+}
+
+.notification-actions button:last-child:hover {
+    border-color: #8a2be2;
+    color: #8a2be2;
+}
+
+/* Mobile Responsiveness for Tracker */
+@media (max-width: 768px) {
+    .live-tracker {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 10px auto;
+        width: fit-content;
+    }
+    
+    .update-notification {
+        margin: 20px;
+        min-width: auto;
+        width: calc(100% - 40px);
+    }
+}
